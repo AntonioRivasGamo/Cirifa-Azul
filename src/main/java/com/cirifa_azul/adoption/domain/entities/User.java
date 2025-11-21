@@ -30,9 +30,11 @@ public class User {
     private String password;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private UserStatus status;
 
     // Estas son las anotaciones de hibernate para rellenar datos de auditoria automaticamente
