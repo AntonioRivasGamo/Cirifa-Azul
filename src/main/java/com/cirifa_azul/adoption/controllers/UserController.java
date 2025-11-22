@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Users API", description = "API to manage users")
 public class UserController {
     //Esta es una de las cosas que mas molan de lombok con spring, inyeccion de dependencias sin constructores
-    private final AuthService authService;
+    //private final AuthService authService;
 
     @PostMapping("/login")
     @Operation(summary = "Login for users")
