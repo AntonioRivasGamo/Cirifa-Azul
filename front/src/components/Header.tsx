@@ -24,7 +24,7 @@ const Header = () => {
             Sobre Nosotros
           </a>
           <Link
-            to="/sign-in"
+            to="/login"
             className="bg-white text-emerald-600 px-6 py-2 rounded-lg font-bold hover:bg-emerald-50 transition-colors shadow-md"
           >
             Ingresar

@@ -4,8 +4,10 @@ import {
   BrowserRouter as Router,
   Routes,
 } from "react-router-dom";
-import Layout from "./layouts/Layout";
+import Layout from "./layouts/LandingLayout";
+import AuthLayout from "./layouts/AuthLayout";
 import Home from "./pages/Home";
+import Auth from "./pages/Auth";
 
 function App() {
   return (
@@ -17,6 +19,14 @@ function App() {
             <Layout>
               <Home />
             </Layout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <AuthLayout>
+              <Auth />
+            </AuthLayout>
           }
         />
         <Route path="*" element={<Navigate to="/" />} />

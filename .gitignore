@@ -23,7 +23,7 @@
 hs_err_pid*
 replay_pid*
 
-.idea
+back/.idea
 /back/target
 /back/.classpath
 /back/.project
@@ -46,7 +46,7 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+back/.idea
 .DS_Store
 *.suo
 *.ntvs*
