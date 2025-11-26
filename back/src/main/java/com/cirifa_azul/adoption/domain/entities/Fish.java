@@ -1,5 +1,7 @@
 package com.cirifa_azul.adoption.domain.entities;
 
+import java.sql.Blob;
+
 import com.cirifa_azul.adoption.domain.entities.enums.Diet;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 import com.cirifa_azul.adoption.domain.entities.enums.WaterType;
@@ -13,45 +15,44 @@ import jakarta.persistence.Enumerated;
 @DiscriminatorValue("FISH")
 public class Fish extends Animal {
 
-	String species;
-	@Enumerated(EnumType.STRING)
-	Diet diet;
-	@Enumerated(EnumType.STRING)
-	WaterType waterType;
+    String species;
+    @Enumerated(EnumType.STRING)
+    Diet diet;
+    @Enumerated(EnumType.STRING)
+    WaterType waterType;
 
-	public Fish(User user, String name, String age, Gender gender, String species, Diet diet, WaterType waterType) {
-		super(user, name, age, gender);
-		this.species = species;
-		this.diet = diet;
-		this.waterType = waterType;
-	}
+    public Fish(Diet diet, String species, WaterType waterType, User user, String name, String age, Gender gender, Blob mainPhoto) {
+        super(user, name, age, gender, mainPhoto);
+        this.diet = diet;
+        this.species = species;
+        this.waterType = waterType;
+    }
 
-	public Fish(User user, String name, String age, Gender gender) {
-		super(user, name, age, gender);
-	}
+    public Fish() {
+    }
 
-	public String getSpecies() {
-		return species;
-	}
+    public String getSpecies() {
+        return species;
+    }
 
-	public void setSpecies(String species) {
-		this.species = species;
-	}
+    public void setSpecies(String species) {
+        this.species = species;
+    }
 
-	public Diet getDiet() {
-		return diet;
-	}
+    public Diet getDiet() {
+        return diet;
+    }
 
-	public void setDiet(Diet diet) {
-		this.diet = diet;
-	}
+    public void setDiet(Diet diet) {
+        this.diet = diet;
+    }
 
-	public WaterType getWaterType() {
-		return waterType;
-	}
+    public WaterType getWaterType() {
+        return waterType;
+    }
 
-	public void setWaterType(WaterType waterType) {
-		this.waterType = waterType;
-	}
+    public void setWaterType(WaterType waterType) {
+        this.waterType = waterType;
+    }
 
 }
