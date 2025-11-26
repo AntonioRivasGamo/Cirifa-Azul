@@ -1,5 +1,7 @@
 package com.cirifa_azul.adoption.domain.entities;
 
+import java.sql.Blob;
+
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 import com.cirifa_azul.adoption.domain.entities.enums.HairLength;
 import com.cirifa_azul.adoption.domain.entities.enums.Size;
@@ -22,20 +24,18 @@ public class Cat extends Animal {
 	Boolean isVaccinated;
 	Boolean isCastrated;
 
-	public Cat(User user, String name, String age, Double weight, Gender gender, String breed, HairLength hairLength,
-			Boolean isVaccinated, Boolean isCastrated) {
-		super(user, name, age, gender);
-		this.breed = breed;
-		this.hairLength = hairLength;
-		this.weight = weight;
-		this.size = Size.sizeCategory(this.weight);
-		this.isVaccinated = isVaccinated;
-		this.isCastrated = isCastrated;
-	}
+    public Cat(String breed, HairLength hairLength, Boolean isCastrated, Boolean isVaccinated, Size size, Double weight, User user, String name, String age, Gender gender, Blob mainPhoto) {
+        super(user, name, age, gender, mainPhoto);
+        this.breed = breed;
+        this.hairLength = hairLength;
+        this.isCastrated = isCastrated;
+        this.isVaccinated = isVaccinated;
+        this.size = size;
+        this.weight = weight;
+    }
 
-	public Cat(User user, String name, String age, Gender gender) {
-		super(user, name, age, gender);
-	}
+    public Cat() {
+    }
 
 	public String getBreed() {
 		return breed;

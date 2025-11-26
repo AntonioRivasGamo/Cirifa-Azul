@@ -1,5 +1,6 @@
 package com.cirifa_azul.adoption.domain.entities;
 
+import java.sql.Blob;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -35,6 +36,7 @@ public abstract class Animal {
 	String age;
 	@Enumerated(EnumType.STRING)
 	Gender gender;
+	Blob mainPhoto;
 
 	@CreationTimestamp
 	private LocalDateTime createdAt;
@@ -42,16 +44,24 @@ public abstract class Animal {
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
 
-	Animal(User user, String name, String age, Gender gender) {
-		super();
+	public Animal(User user, String name, String age, Gender gender, Blob mainPhoto) {
 		this.user = user;
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
+		this.mainPhoto = mainPhoto;
 	}
 
 	Animal() {
 		super();
+	}
+
+	public void setMainPhoto(Blob mainPhoto) {
+		this.mainPhoto = mainPhoto;
+	}
+
+	public Blob getMainPhoto() {
+		return mainPhoto;
 	}
 
 	public UUID getId() {

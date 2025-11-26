@@ -1,5 +1,7 @@
 package com.cirifa_azul.adoption.domain.entities;
 
+import java.sql.Blob;
+
 import com.cirifa_azul.adoption.domain.entities.enums.Diet;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 
@@ -18,18 +20,16 @@ public class Bird extends Animal {
 	Boolean canSpeak;
 	Boolean canFly;
 
-	public Bird(User user, String name, String age, Gender gender, String breed, Diet diet,
-			Boolean canSpeak, Boolean canFly) {
-		super(user, name, age, gender);
-		this.breed = breed;
-		this.diet = diet;
-		this.canSpeak = canSpeak;
-		this.canFly = canFly;
-	}
+    public Bird(String breed, Boolean canFly, Boolean canSpeak, Diet diet, User user, String name, String age, Gender gender, Blob mainPhoto) {
+        super(user, name, age, gender, mainPhoto);
+        this.breed = breed;
+        this.canFly = canFly;
+        this.canSpeak = canSpeak;
+        this.diet = diet;
+    }
 
-	public Bird(User user, String name, String age, Gender gender) {
-		super(user, name, age, gender);
-	}
+    public Bird() {
+    }
 
 	public String getBreed() {
 		return breed;

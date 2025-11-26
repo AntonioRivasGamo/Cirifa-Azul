@@ -1,5 +1,7 @@
 package com.cirifa_azul.adoption.domain.entities;
 
+import java.sql.Blob;
+
 import com.cirifa_azul.adoption.domain.entities.enums.Diet;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 
@@ -17,17 +19,15 @@ public class Farm extends Animal {
 	Diet diet;
 	Boolean isVaccinated;
 
-	public Farm(User user, String name, String age, Gender gender, String species, Diet diet,
-			Boolean isVaccinated) {
-		super(user, name, age, gender);
-		this.species = species;
-		this.diet = diet;
-		this.isVaccinated = isVaccinated;
-	}
+    public Farm(Diet diet, Boolean isVaccinated, String species, User user, String name, String age, Gender gender, Blob mainPhoto) {
+        super(user, name, age, gender, mainPhoto);
+        this.diet = diet;
+        this.isVaccinated = isVaccinated;
+        this.species = species;
+    }
 
-	public Farm(User user, String name, String age, Gender gender) {
-		super(user, name, age, gender);
-	}
+    public Farm() {
+    }
 
 	public String getSpecies() {
 		return species;
