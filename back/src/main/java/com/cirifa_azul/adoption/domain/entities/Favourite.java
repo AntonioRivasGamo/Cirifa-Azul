@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Favourite {
@@ -17,7 +18,9 @@ public class Favourite {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	UUID id;
+	@ManyToOne
 	User user;
+	@ManyToOne
 	Post post;
 
 	@CreationTimestamp

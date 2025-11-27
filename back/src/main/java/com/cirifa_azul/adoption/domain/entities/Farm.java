@@ -19,7 +19,8 @@ public class Farm extends Animal {
 	Diet diet;
 	Boolean isVaccinated;
 
-    public Farm(Diet diet, Boolean isVaccinated, String species, User user, String name, String age, Gender gender, Blob mainPhoto) {
+    public Farm(Diet diet, Boolean isVaccinated, String species, 
+    		User user, String name, String age, Gender gender, Blob mainPhoto) {
         super(user, name, age, gender, mainPhoto);
         this.diet = diet;
         this.isVaccinated = isVaccinated;

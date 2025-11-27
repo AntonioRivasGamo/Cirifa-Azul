@@ -19,7 +19,8 @@ public class Other extends Animal {
     Diet diet;
     String moreDetails;
 
-    public Other(Diet diet, String moreDetails, String species, User user, String name, String age, Gender gender, Blob mainPhoto) {
+    public Other(Diet diet, String moreDetails, String species, User user, 
+    		String name, String age, Gender gender, Blob mainPhoto) {
         super(user, name, age, gender, mainPhoto);
         this.diet = diet;
         this.moreDetails = moreDetails;

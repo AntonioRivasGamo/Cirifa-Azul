@@ -21,7 +21,8 @@ public class Fish extends Animal {
     @Enumerated(EnumType.STRING)
     WaterType waterType;
 
-    public Fish(Diet diet, String species, WaterType waterType, User user, String name, String age, Gender gender, Blob mainPhoto) {
+    public Fish(Diet diet, String species, WaterType waterType, User user, 
+    		String name, String age, Gender gender, Blob mainPhoto) {
         super(user, name, age, gender, mainPhoto);
         this.diet = diet;
         this.species = species;

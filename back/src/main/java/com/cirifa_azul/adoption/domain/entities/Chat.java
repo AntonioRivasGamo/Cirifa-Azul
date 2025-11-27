@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Chat {
@@ -17,7 +18,9 @@ public class Chat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	UUID id;
+	@ManyToOne
 	User user1;
+	@ManyToOne
 	User user2;
 
 	@CreationTimestamp
