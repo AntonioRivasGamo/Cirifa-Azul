@@ -21,11 +21,11 @@ public class AuthServiceImpl implements AuthService {
     private UserService userService;
     private UserMapper userMapper;
     
-	public AuthServiceImpl(UserService userService, UserMapper userMapper) {
-		super();
-		this.userService = userService;
-		this.userMapper = userMapper;
-	}
+//	public AuthServiceImpl(UserService userService, UserMapper userMapper) {
+//		super();
+//		this.userService = userService;
+//		this.userMapper = userMapper;
+//	}
 
 	@Override
 	public LoginResponseDTO login(LoginRequestDTO request) {

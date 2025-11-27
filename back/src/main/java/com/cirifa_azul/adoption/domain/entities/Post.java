@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Post {
@@ -17,7 +18,9 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	UUID id;
+	@ManyToOne
 	Animal animal;
+	@ManyToOne
 	User user;
 	String description;
 	Boolean isActive;

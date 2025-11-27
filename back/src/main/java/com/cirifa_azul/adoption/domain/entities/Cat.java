@@ -24,14 +24,15 @@ public class Cat extends Animal {
 	Boolean isVaccinated;
 	Boolean isCastrated;
 
-    public Cat(String breed, HairLength hairLength, Boolean isCastrated, Boolean isVaccinated, Size size, Double weight, User user, String name, String age, Gender gender, Blob mainPhoto) {
+    public Cat(String breed, HairLength hairLength, Boolean isCastrated, Boolean isVaccinated, 
+    		Double weight, User user, String name, String age, Gender gender, Blob mainPhoto) {
         super(user, name, age, gender, mainPhoto);
         this.breed = breed;
         this.hairLength = hairLength;
         this.isCastrated = isCastrated;
         this.isVaccinated = isVaccinated;
-        this.size = size;
         this.weight = weight;
+        this.size = Size.sizeCategory(this.weight);
     }
 
     public Cat() {
