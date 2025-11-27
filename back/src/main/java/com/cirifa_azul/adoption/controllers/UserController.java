@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,11 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/api/v1/auth")
-@RequiredArgsConstructor
 @Tag(name = "Users API", description = "API to manage users")
 public class UserController {
-    //Esta es una de las cosas que mas molan de lombok con spring, inyeccion de dependencias sin constructores
     private final AuthService authService;
+    
+    public UserController(AuthService authService) {
+		this.authService = authService;
+	}
 
     @PostMapping("/login")
     @Operation(summary = "Login for users")
