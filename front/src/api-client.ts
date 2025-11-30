@@ -1,6 +1,6 @@
 import type { LoginFormData } from "./pages/Auth";
 
-const API_BASE_URL = import.meta.env.VITA_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const login = async (formData: LoginFormData) => {
   const response = await fetch(`${API_BASE_URL}/api/v1/auth/login`, {
@@ -16,4 +16,6 @@ export const login = async (formData: LoginFormData) => {
   if (!response.ok) {
     throw new Error(responseBody.message);
   }
+
+  return responseBody;
 };

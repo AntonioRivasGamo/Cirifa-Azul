@@ -1,7 +1,7 @@
 package com.cirifa_azul.adoption.controllers;
 
-import com.cirifa_azul.adoption.domain.dtos.LoginRequestDTO;
 import com.cirifa_azul.adoption.domain.dtos.LoginResponseDTO;
+import com.cirifa_azul.adoption.domain.dtos.LoginRequestDTO;
 import com.cirifa_azul.adoption.services.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -16,13 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/api/v1/auth")
+@RequiredArgsConstructor
 @Tag(name = "Users API", description = "API to manage users")
 public class UserController {
     private final AuthService authService;
-    
-    public UserController(AuthService authService) {
-		this.authService = authService;
-	}
 
     @PostMapping("/login")
     @Operation(summary = "Login for users")

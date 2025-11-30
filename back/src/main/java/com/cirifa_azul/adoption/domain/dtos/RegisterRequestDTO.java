@@ -12,11 +12,21 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Builder
-public class LoginRequestDTO {
-    @Email(message = "Email must be valid")
+public class RegisterRequestDTO {
+    @Email(message = "Email isn't valid required")
     @NotBlank(message = "Email is required")
     private String email;
 
+    @NotBlank(message = "Username is required")
+    private String username;
+
+    @NotBlank(message = "First Name is required")
+    private String firstName;
+
+    @NotBlank(message = "Last Name is required")
+    private String lastName;
+
     @NotBlank(message = "Password is required")
+    @Size(max = 20, min = 6, message = "Password must have between {min} and {max} characters")
     private String password;
 }
