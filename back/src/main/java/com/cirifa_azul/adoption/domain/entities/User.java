@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import com.cirifa_azul.adoption.domain.entities.enums.UserRole;
 import com.cirifa_azul.adoption.domain.entities.enums.UserStatus;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
@@ -48,10 +49,9 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private UserStatus status;
+    @Builder.Default
+    private UserStatus status = UserStatus.ACTIVE;
 
-    // Estas son las anotaciones de hibernate para rellenar datos de auditoria automaticamente
-    // Las de jakarta serian @PrePersist y @PreUpdate y su ventaja es que puedes crear tu propia logica
     @CreationTimestamp
     private LocalDateTime createdAt;
 
@@ -60,26 +60,26 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return UserDetails.super.isAccountNonExpired();
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return UserDetails.super.isAccountNonLocked();
+        return status != UserStatus.BANNED;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return UserDetails.super.isCredentialsNonExpired();
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return UserDetails.super.isEnabled();
+        return status == UserStatus.ACTIVE;
     }
 }

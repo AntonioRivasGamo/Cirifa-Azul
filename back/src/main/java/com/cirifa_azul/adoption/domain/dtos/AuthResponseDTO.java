@@ -6,11 +6,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.util.UUID;
+
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Builder
-public class LoginResponseDTO {
+public class AuthResponseDTO {
     @JsonProperty("access_token")
     private String accessToken;
 
@@ -20,7 +22,7 @@ public class LoginResponseDTO {
     @JsonProperty("token_type")
     private String tokenType = "Bearer";
 
-    private Long userId;
+    private UUID userId;
     private String username;
     private String role;
 }
