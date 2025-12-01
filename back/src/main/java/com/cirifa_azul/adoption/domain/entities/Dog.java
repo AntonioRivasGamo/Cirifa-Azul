@@ -1,19 +1,47 @@
 package com.cirifa_azul.adoption.domain.entities;
 
-import java.sql.Blob;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 import com.cirifa_azul.adoption.domain.entities.enums.HairLength;
 import com.cirifa_azul.adoption.domain.entities.enums.Size;
-
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@DiscriminatorValue("DOG")
-public class Dog extends Animal {
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Dog{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	UUID id;
+	@ManyToOne
+	User user;
+	String name;
+	Integer age;
+	@Enumerated(EnumType.STRING)
+	Gender gender;
+	@Lob
+	Byte[] mainPhoto;
 	String breed;
 	Double weight;
 	@Enumerated(EnumType.STRING)
@@ -22,67 +50,9 @@ public class Dog extends Animal {
 	Size size;
 	Boolean isVaccinated;
 	Boolean isCastrated;
-
-    public Dog(String breed, HairLength hairLength, Boolean isCastrated, Boolean isVaccinated, 
-    		Double weight, User user, String name, Integer age, Gender gender, Byte[] mainPhoto) {
-        super(user, name, age, gender, mainPhoto);
-        this.breed = breed;
-        this.hairLength = hairLength;
-        this.isCastrated = isCastrated;
-        this.isVaccinated = isVaccinated;
-        this.weight = weight;
-        this.size = Size.sizeCategory(this.weight);
-    }
-
-    public Dog() {
-    }
-
-	public String getBreed() {
-		return breed;
-	}
-
-	public void setBreed(String breed) {
-		this.breed = breed;
-	}
-
-	public Double getWeight() {
-		return weight;
-	}
-
-	public void setWeight(Double weight) {
-		this.weight = weight;
-	}
-
-	public HairLength getHairLength() {
-		return hairLength;
-	}
-
-	public void setHairLength(HairLength hairLength) {
-		this.hairLength = hairLength;
-	}
-
-	public Size getSize() {
-		return size;
-	}
-
-	public void setSize(Size size) {
-		this.size = size;
-	}
-
-	public Boolean getIsVaccinated() {
-		return isVaccinated;
-	}
-
-	public void setIsVaccinated(Boolean isVaccinated) {
-		this.isVaccinated = isVaccinated;
-	}
-
-	public Boolean getIsCastrated() {
-		return isCastrated;
-	}
-
-	public void setIsCastrated(Boolean isCastrated) {
-		this.isCastrated = isCastrated;
-	}
+	@CreationTimestamp
+	private LocalDateTime createdAt;
+	@UpdateTimestamp
+	private LocalDateTime updatedAt;
 
 }
