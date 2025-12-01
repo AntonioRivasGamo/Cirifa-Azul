@@ -8,9 +8,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,6 +21,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -36,7 +39,8 @@ public abstract class Animal {
 	Integer age;
 	@Enumerated(EnumType.STRING)
 	Gender gender;
-	Blob mainPhoto;
+	@Lob
+	Byte[] mainPhoto;
 
 	@CreationTimestamp
 	private LocalDateTime createdAt;
@@ -44,7 +48,7 @@ public abstract class Animal {
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
 
-	Animal(User user, String name, Integer age, Gender gender, Blob mainPhoto) {
+	Animal(User user, String name, Integer age, Gender gender, Byte[] mainPhoto) {
 		this.user = user;
 		this.name = name;
 		this.age = age;
@@ -56,11 +60,11 @@ public abstract class Animal {
 		super();
 	}
 
-	public void setMainPhoto(Blob mainPhoto) {
+	public void setMainPhoto(Byte[] mainPhoto) {
 		this.mainPhoto = mainPhoto;
 	}
 
-	public Blob getMainPhoto() {
+	public Byte[] getMainPhoto() {
 		return mainPhoto;
 	}
 
@@ -118,6 +122,13 @@ public abstract class Animal {
 
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	
+	@JsonProperty("type")
+	public String getType() {
+	    DiscriminatorValue dv = this.getClass().getAnnotation(DiscriminatorValue.class);
+	    if (dv != null) return dv.value();
+	    return this.getClass().getSimpleName().toUpperCase();
 	}
 
 }
