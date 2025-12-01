@@ -1,6 +1,11 @@
 package com.cirifa_azul.adoption.domain.entities;
 
 import java.sql.Blob;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.cirifa_azul.adoption.domain.entities.enums.Diet;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
@@ -9,58 +14,35 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 @DiscriminatorValue("BIRD")
-public class Bird extends Animal {
+public class Bird{
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	UUID id;
+	@ManyToOne
+	User user;
+	String name;
+	Integer age;
+	@Enumerated(EnumType.STRING)
+	Gender gender;
+	@Lob
+	Byte[] mainPhoto;
 	String breed;
 	@Enumerated(EnumType.STRING)
 	Diet diet;
 	Boolean canSpeak;
 	Boolean canFly;
+	@CreationTimestamp
+	private LocalDateTime createdAt;
+	@UpdateTimestamp
+	private LocalDateTime updatedAt;
 
-    public Bird(String breed, Boolean canFly, Boolean canSpeak, Diet diet, User user, String name, Integer age, 
-    		Gender gender, Byte[] mainPhoto) {
-        super(user, name, age, gender, mainPhoto);
-        this.breed = breed;
-        this.canFly = canFly;
-        this.canSpeak = canSpeak;
-        this.diet = diet;
-    }
-
-    public Bird() {
-    }
-
-	public String getBreed() {
-		return breed;
-	}
-
-	public void setBreed(String breed) {
-		this.breed = breed;
-	}
-
-	public Diet getDiet() {
-		return diet;
-	}
-
-	public void setDiet(Diet diet) {
-		this.diet = diet;
-	}
-
-	public Boolean getCanSpeak() {
-		return canSpeak;
-	}
-
-	public void setCanSpeak(Boolean canSpeak) {
-		this.canSpeak = canSpeak;
-	}
-
-	public Boolean getCanFly() {
-		return canFly;
-	}
-
-	public void setCanFly(Boolean canFly) {
-		this.canFly = canFly;
-	}
 }
