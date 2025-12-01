@@ -33,7 +33,7 @@ public abstract class Animal {
 	@ManyToOne
 	User user;
 	String name;
-	String age;
+	Integer age;
 	@Enumerated(EnumType.STRING)
 	Gender gender;
 	Blob mainPhoto;
@@ -44,7 +44,7 @@ public abstract class Animal {
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
 
-	Animal(User user, String name, String age, Gender gender, Blob mainPhoto) {
+	Animal(User user, String name, Integer age, Gender gender, Blob mainPhoto) {
 		this.user = user;
 		this.name = name;
 		this.age = age;
@@ -88,11 +88,11 @@ public abstract class Animal {
 		this.name = name;
 	}
 
-	public String getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
