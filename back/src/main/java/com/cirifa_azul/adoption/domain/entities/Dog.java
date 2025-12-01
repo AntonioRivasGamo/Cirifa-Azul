@@ -20,7 +20,7 @@ public class Dog extends Animal {
 	Boolean isCastrated;
 
     public Dog(String breed, HairLength hairLength, Boolean isCastrated, Boolean isVaccinated, 
-    		Double weight, User user, String name, String age, Gender gender, Blob mainPhoto) {
+    		Double weight, User user, String name, Integer age, Gender gender, Blob mainPhoto) {
         super(user, name, age, gender, mainPhoto);
         this.breed = breed;
         this.hairLength = hairLength;

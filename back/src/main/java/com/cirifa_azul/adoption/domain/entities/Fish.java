@@ -22,7 +22,7 @@ public class Fish extends Animal {
     WaterType waterType;
 
     public Fish(Diet diet, String species, WaterType waterType, User user, 
-    		String name, String age, Gender gender, Blob mainPhoto) {
+    		String name, Integer age, Gender gender, Blob mainPhoto) {
         super(user, name, age, gender, mainPhoto);
         this.diet = diet;
         this.species = species;
