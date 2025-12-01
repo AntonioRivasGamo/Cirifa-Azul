@@ -27,3 +27,8 @@ VALUES (
            CURRENT_TIMESTAMP,
            CURRENT_TIMESTAMP
        );;
+       
+       
+INSERT INTO public.animal (age,can_fly,can_speak,is_castrated,is_vaccinated,weight,created_at,updated_at,id,user_id,"type",breed,diet,gender,hair_length,more_details,name,"size",species,water_type,main_photo) VALUES
+	 (13,NULL,NULL,true,true,22.3,'2025-12-01 19:08:11.752953','2025-12-01 19:08:11.752995','f68a8843-032d-4621-9d55-d72df13679c6'::uuid,'b1ffcd88-8d0a-3fe7-aa5c-5aa8ac270b22'::uuid,'DOG','Labrador',NULL,'MALE','LONG',NULL,'Juanito','MEDIUM',NULL,NULL,NULL),
+	 (3,NULL,NULL,false,false,2.3,'2025-12-01 19:09:37.430733','2025-12-01 19:09:37.430756','7f5ccb79-fca2-4d1b-aedf-973488644106'::uuid,'b1ffcd88-8d0a-3fe7-aa5c-5aa8ac270b22'::uuid,'CAT','Gato',NULL,'FEMALE','HAIRLESS',NULL,'Calvo','TOY',NULL,NULL,NULL);

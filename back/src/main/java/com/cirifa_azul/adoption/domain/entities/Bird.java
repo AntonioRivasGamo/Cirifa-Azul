@@ -21,7 +21,7 @@ public class Bird extends Animal {
 	Boolean canFly;
 
     public Bird(String breed, Boolean canFly, Boolean canSpeak, Diet diet, User user, String name, Integer age, 
-    		Gender gender, Blob mainPhoto) {
+    		Gender gender, Byte[] mainPhoto) {
         super(user, name, age, gender, mainPhoto);
         this.breed = breed;
         this.canFly = canFly;

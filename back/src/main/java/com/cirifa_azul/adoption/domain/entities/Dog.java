@@ -8,19 +8,23 @@ import com.cirifa_azul.adoption.domain.entities.enums.Size;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 @Entity
 @DiscriminatorValue("DOG")
 public class Dog extends Animal {
 	String breed;
 	Double weight;
+	@Enumerated(EnumType.STRING)
 	HairLength hairLength;
+	@Enumerated(EnumType.STRING)
 	Size size;
 	Boolean isVaccinated;
 	Boolean isCastrated;
 
     public Dog(String breed, HairLength hairLength, Boolean isCastrated, Boolean isVaccinated, 
-    		Double weight, User user, String name, Integer age, Gender gender, Blob mainPhoto) {
+    		Double weight, User user, String name, Integer age, Gender gender, Byte[] mainPhoto) {
         super(user, name, age, gender, mainPhoto);
         this.breed = breed;
         this.hairLength = hairLength;
