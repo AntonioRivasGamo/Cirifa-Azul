@@ -5,24 +5,24 @@ import java.util.List;
 
 import org.springframework.data.jpa.domain.Specification;
 
-import com.cirifa_azul.adoption.domain.entities.Dog;
+import com.cirifa_azul.adoption.domain.entities.Cat;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 import com.cirifa_azul.adoption.domain.entities.enums.HairLength;
 import com.cirifa_azul.adoption.domain.entities.enums.Size;
 
 import jakarta.persistence.criteria.Predicate;
 
-public class DogSpecification {
+public class CatSpecification {
 
-	public static Specification<Dog> filterDogs(
-			Integer age,
-			String breed,
-			Gender gender,
-			HairLength hairLength,
-			Boolean isCastrated,
-			Boolean isVaccinated,
+	public static Specification<Cat> filterCat(
 			String name,
-			Size size
+			Integer age,
+			Gender gender,
+			String breed,
+			HairLength hairLength,
+			Size size,
+			Boolean isVaccinated,
+			Boolean isCastrated
 			) {
 		return (root, query, builder) -> {
 			List<Predicate> predicates = new LinkedList<>();
