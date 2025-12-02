@@ -4,24 +4,25 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import com.cirifa_azul.adoption.domain.entities.Cat;
 import com.cirifa_azul.adoption.domain.entities.Dog;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 import com.cirifa_azul.adoption.domain.entities.enums.HairLength;
 import com.cirifa_azul.adoption.domain.entities.enums.Size;
 
-public interface DogService {
+public interface CatService {
 
-	List<Dog> findAll();
-	Optional<Dog> findById(UUID id);
-	Dog create(Dog dog);
-	Optional<Dog> update(Dog dog);
+	List<Cat> findAll();
+	Optional<Cat> findById(UUID id);
+	Cat create(Cat cat);
+	Optional<Cat> update(Cat cat);
 	Boolean delete(UUID id);
-	List<Dog> filterList(Integer age,
-			String breed,
+	List<Cat> filterList(String name,
+			Integer age,
 			Gender gender,
+			String breed,
 			HairLength hairLength,
-			Boolean isCastrated,
+			Size size,
 			Boolean isVaccinated,
-			String name,
-			Size size);
+			Boolean isCastrated);
 }

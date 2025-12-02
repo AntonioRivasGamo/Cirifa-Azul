@@ -42,7 +42,6 @@ public class Favourite {
 	@AnyDiscriminatorValue(discriminator = "BIRD", entity = Bird.class)
 	@AnyDiscriminatorValue(discriminator = "CAT", entity = Cat.class)
 	@AnyDiscriminatorValue(discriminator = "DOG", entity = Dog.class)
-	@AnyDiscriminatorValue(discriminator = "FARM", entity = Farm.class)
 	@AnyDiscriminatorValue(discriminator = "FISH", entity = Fish.class)
 	@AnyDiscriminatorValue(discriminator = "OTHER", entity = Other.class)
 	Object animal;

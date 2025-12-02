@@ -52,9 +52,11 @@ public class DogServiceImpl implements DogService{
 	}
 
 	@Override
-	public List<Dog> filterDogList(Integer age, String breed, Gender gender, HairLength hairLength, 
-			Boolean isCastrated, Boolean isVaccinated, String name, Size size, Double weight) {
+	public List<Dog> filterList(Integer age, String breed, Gender gender, HairLength hairLength, Boolean isCastrated,
+			Boolean isVaccinated, String name, Size size) {
 		return dogRepository.findAll(DogSpecification.filterDogs(age, breed, gender, hairLength, isCastrated, 
-				isVaccinated, name, size, weight));
+				isVaccinated, name, size));
 	}
+
+	
 }
