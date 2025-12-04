@@ -9,6 +9,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import com.cirifa_azul.adoption.domain.entities.enums.Diet;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
+import com.cirifa_azul.adoption.domain.entities.enums.HairLength;
+import com.cirifa_azul.adoption.domain.entities.enums.Size;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -19,9 +21,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@DiscriminatorValue("BIRD")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Bird{
 
 	@Id
