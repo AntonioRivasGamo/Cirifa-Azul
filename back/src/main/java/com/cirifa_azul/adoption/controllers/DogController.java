@@ -53,11 +53,11 @@ public class DogController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Object> find(@PathVariable UUID id) {
+	public ResponseEntity<DogDTO> find(@PathVariable UUID id) {
 		try {
 			return ResponseEntity.ok(dogService.findById(id).orElseThrow());
 		} catch (NoSuchElementException e) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Dog());
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new DogDTO());
 		}
 	}
 	

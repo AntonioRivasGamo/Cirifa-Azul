@@ -17,7 +17,7 @@ public interface CatService {
 	Optional<CatDTO> findById(UUID id);
 	CatDTO create(CatDTO catDTO);
 	Optional<CatDTO> update(CatDTO catDTO);
-	Boolean delete(UUID id);
+	boolean delete(UUID id);
 	List<CatDTO> filterList(String name,
 			Integer age,
 			Gender gender,

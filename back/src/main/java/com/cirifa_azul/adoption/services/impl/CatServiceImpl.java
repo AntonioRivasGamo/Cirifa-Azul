@@ -53,7 +53,7 @@ public class CatServiceImpl implements CatService{
 	}
 
 	@Override
-	public Boolean delete(UUID id) {
+	public boolean delete(UUID id) {
 		if(catRepository.existsById(id)) {
 			catRepository.deleteById(id);
 			return true;
