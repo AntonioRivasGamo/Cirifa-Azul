@@ -3,14 +3,14 @@ package com.cirifa_azul.adoption.mappers;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 
-import com.cirifa_azul.adoption.domain.dtos.CatDTO;
-import com.cirifa_azul.adoption.domain.entities.Cat;
+import com.cirifa_azul.adoption.domain.dtos.BirdDTO;
+import com.cirifa_azul.adoption.domain.entities.Bird;
 
 @Mapper(componentModel = "spring", uses = {UserMapper.class})
-public interface CatMapper {
+public interface BirdMapper {
 
-	CatDTO toDTO(Cat cat);
+	BirdDTO toDto(Bird bird);
 	
 	@InheritInverseConfiguration
-	Cat toEntity(CatDTO catDTO);
+	Bird toEntity(BirdDTO birdDTO);
 }

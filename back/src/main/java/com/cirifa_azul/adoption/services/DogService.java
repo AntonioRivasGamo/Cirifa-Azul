@@ -14,8 +14,8 @@ public interface DogService {
 
 	List<DogDTO> findAll();
 	Optional<DogDTO> findById(UUID id);
-	DogDTO create(DogDTO dogDto);
-	Optional<DogDTO> update(DogDTO dogDto);
+	DogDTO create(DogDTO dogDTO);
+	Optional<DogDTO> update(DogDTO dogDTO);
 	Boolean delete(UUID id);
 	List<DogDTO> filterList(Integer age,
 			String breed,
