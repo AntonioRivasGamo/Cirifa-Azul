@@ -37,16 +37,16 @@ public class DogServiceImpl implements DogService{
 		return dogRepository.findById(id).map(dogMapper::toDTO);
 	}
 	@Override
-	public DogDTO create(DogDTO dogDto) {
-		Dog dog = dogMapper.toEntity(dogDto);
+	public DogDTO create(DogDTO dogDTO) {
+		Dog dog = dogMapper.toEntity(dogDTO);
 		dog.setSize(Size.sizeCategory(dog.getWeight()));
-		dog.setUser(userService.findByEmail(dogDto.getUser().getEmail()).orElseThrow());
+		dog.setUser(userService.findByEmail(dogDTO.getUser().getEmail()).orElseThrow());
 		return dogMapper.toDTO(dogRepository.save(dog));
 	}
 	@Override
-	public Optional<DogDTO> update(DogDTO dogDto) {
-		return dogRepository.findById(dogDto.getId()).map(d -> 
-		dogMapper.toDTO(dogRepository.save(dogMapper.toEntity(dogDto))));
+	public Optional<DogDTO> update(DogDTO dogDTO) {
+		return dogRepository.findById(dogDTO.getId()).map(d -> 
+		dogMapper.toDTO(dogRepository.save(dogMapper.toEntity(dogDTO))));
 	}
 	@Override
 	public Boolean delete(UUID id) {
