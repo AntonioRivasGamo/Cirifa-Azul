@@ -7,8 +7,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
-import com.cirifa_azul.adoption.domain.entities.enums.HairLength;
-import com.cirifa_azul.adoption.domain.entities.enums.Size;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -17,12 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cirifa_azul.adoption.domain.dtos.BirdDTO;
-import com.cirifa_azul.adoption.domain.entities.Bird;
 import com.cirifa_azul.adoption.domain.entities.enums.Diet;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 import com.cirifa_azul.adoption.services.BirdService;
 
-import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 
 @RestController

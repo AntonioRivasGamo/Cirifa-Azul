@@ -1,12 +1,10 @@
 package com.cirifa_azul.adoption.controllers;
 
 import java.util.List;
-import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cirifa_azul.adoption.domain.dtos.DogDTO;
-import com.cirifa_azul.adoption.domain.entities.Dog;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 import com.cirifa_azul.adoption.domain.entities.enums.HairLength;
 import com.cirifa_azul.adoption.domain.entities.enums.Size;

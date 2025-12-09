@@ -12,7 +12,6 @@ import com.cirifa_azul.adoption.domain.entities.enums.Diet;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 import com.cirifa_azul.adoption.mappers.BirdMapper;
 import com.cirifa_azul.adoption.repositories.BirdRepository;
-import com.cirifa_azul.adoption.repositories.UserRepository;
 import com.cirifa_azul.adoption.repositories.specifications.BirdSpecification;
 import com.cirifa_azul.adoption.services.BirdService;
 import com.cirifa_azul.adoption.services.UserService;
@@ -22,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class BirdServiceImpl implements BirdService{
-	
+
 	private final BirdRepository birdRepository;
 	private final BirdMapper birdMapper;
 	private final UserService userService;
@@ -46,7 +45,7 @@ public class BirdServiceImpl implements BirdService{
 
 	@Override
 	public Optional<BirdDTO> update(BirdDTO birdDTO) {
-		return birdRepository.findById(birdDTO.getId()).map(b -> 
+		return birdRepository.findById(birdDTO.getId()).map(b ->
 		birdMapper.toDto(birdRepository.save(birdMapper.toEntity(birdDTO))));
 	}
 
