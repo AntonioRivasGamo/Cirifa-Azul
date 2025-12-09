@@ -73,8 +73,8 @@ public class DogController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity delete(@PathVariable UUID id) {
-		if(dogService.delete(id)) return ResponseEntity.ok().build();
+	public ResponseEntity<Object> delete(@PathVariable UUID id) {
+		if(Boolean.TRUE.equals(dogService.delete(id))) return ResponseEntity.ok().build();
 		return ResponseEntity.notFound().build();
 	}
 }
