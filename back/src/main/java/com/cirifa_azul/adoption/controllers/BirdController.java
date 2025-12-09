@@ -74,8 +74,8 @@ public class BirdController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity delete(@PathVariable UUID id) {
-		if(birdService.delete(id)) return ResponseEntity.ok().build();
+	public ResponseEntity<Object> delete(@PathVariable UUID id) {
+		if(Boolean.TRUE.equals(birdService.delete(id))) return ResponseEntity.ok().build();
 		return ResponseEntity.notFound().build();
 	}
 }
