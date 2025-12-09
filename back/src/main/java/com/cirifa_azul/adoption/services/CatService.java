@@ -5,8 +5,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 import com.cirifa_azul.adoption.domain.dtos.CatDTO;
-import com.cirifa_azul.adoption.domain.entities.Cat;
-import com.cirifa_azul.adoption.domain.entities.Dog;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 import com.cirifa_azul.adoption.domain.entities.enums.HairLength;
 import com.cirifa_azul.adoption.domain.entities.enums.Size;

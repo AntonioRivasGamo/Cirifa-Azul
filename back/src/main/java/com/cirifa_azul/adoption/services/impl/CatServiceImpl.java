@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.cirifa_azul.adoption.domain.dtos.CatDTO;
 import com.cirifa_azul.adoption.domain.entities.Cat;
-import com.cirifa_azul.adoption.domain.entities.Dog;
 import com.cirifa_azul.adoption.domain.entities.enums.Gender;
 import com.cirifa_azul.adoption.domain.entities.enums.HairLength;
 import com.cirifa_azul.adoption.domain.entities.enums.Size;
@@ -27,7 +26,7 @@ public class CatServiceImpl implements CatService{
 	private final CatRepository catRepository;
 	private final CatMapper catMapper;
 	private final UserService userService;
-	
+
 	@Override
 	public List<CatDTO> findAll() {
 		return catRepository.findAll().stream().map(catMapper::toDTO).toList();
@@ -48,7 +47,7 @@ public class CatServiceImpl implements CatService{
 
 	@Override
 	public Optional<CatDTO> update(CatDTO catDTO) {
-		return catRepository.findById(catDTO.getId()).map(d -> 
+		return catRepository.findById(catDTO.getId()).map(d ->
 		catMapper.toDTO(catRepository.save(catMapper.toEntity(catDTO))));
 	}
 
